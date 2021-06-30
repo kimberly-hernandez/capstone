@@ -8,7 +8,7 @@ let array = [26, 44, 72, 86, 112];
 
 let summ = array.reduce(function (a,b){
     return a+b;
-}, 0);
+}, 0);n  
 
 let average = summ / array.length;
 
