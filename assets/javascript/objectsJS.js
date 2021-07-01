@@ -175,7 +175,16 @@ let massTotal = charactersArray.reduce(function(total, currentCharacter){
 
 console.log("This is the total mass of all characters: " + massTotal);
 */
-//11.
+//11.Create a function called tagFavorite that takes an array as one parameter and a string
+// that represents your favorite character's name as another parameter. This function does not
+ // need to return anything.
+
+//Create a loop inside the function that loops over the array passed in.
+//Add a property to each object in the array called favoriteCharacter and default it to false
+//If the character name matches the character name passed in, set the favoriteCharacter 
+//property to true for that character's object
+//Test your function by passing in the charactersArray and your favorite character's name
+ //when running the function. Print the charactersArray after you run the function to ensure the objects updated properly.
 
 function tagFavorite(tagArray, favChar){
     tagArray.forEach(character => {
