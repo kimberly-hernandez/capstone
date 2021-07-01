@@ -1,4 +1,5 @@
-/* //1.
+ //1.
+ /*
 let person = {
     name: "Kimmie",
     age: 27,
@@ -42,7 +43,7 @@ let studentBob = {
 }
 
 studentBob.averageGrades();
-
+/*
 //4. add new method to studentBob object called printDetails.
 
 let studentBob = {
@@ -66,10 +67,10 @@ let studentBob = {
 }
 
 studentBob.printDetails();
- */
+ 
 
 //5. Look through array of object and print out name property of each object to console.
-
+*/
 const charactersArray = [
     {
         name: 'Luke Skywalker',
@@ -100,7 +101,92 @@ const charactersArray = [
         gender: 'male',
     },
 ];
+/*
+for (let characterName in charactersArray){
+    console.log(`${charactersArray[characterName].name}`);
+}
+//uppercase
+for(let i=0; i <charactersArray.length; i++){
+    console.log(charactersArray[i].name.toUpperCase());
+}
 
 
-let charactersNames = charactersArray.filter(charactersArray =>charactersArray.name);
-console.log(charactersNames);
+//6. Using the Array.filter() method on charactersArray, create a new array called 
+//filteredCharactersArray that only contains characters where the mass is greater than 80.
+
+
+let filteredCharactersArray =charactersArray.filter(function(element){
+    return element.mass > 80;
+})
+console.log(filteredCharactersArray)
+
+
+//7. Using the Array.map() method on charactersArray, create a new array called characterNames
+// that only contains names of each character as a string.
+
+const characterName =charactersArray.map(nameFunction)
+
+function nameFunction(element){
+    return element.name;
+}
+
+console.log(characterName);
+/*
+//8. Using the Array.some() method on charactersArray. Check to see if a character has 
+//blue eyes. If they do, print "Some characters have blue eyes" otherwise print 
+//"No characters have blue eyes" to the console.
+
+let eyeColorcheck = charactersArray.some(eyeColorFunction)
+
+function eyeColorFunction (element){
+   return element.eye_color === 'blue';
+}
+
+if (eyeColorcheck === true){
+    console.log("Some characters have blue eyes")
+}
+else{
+    console.log("No characters hve blue eyes")
+};
+
+//9.Using the Array.every() method on charactersArray. Check to see if all characters 
+//are male. If they every character is male, print "All the characters are male" to the
+ //console.
+
+let maleCheck= charactersArray.every(maleCheckFunction)
+
+function maleCheckFunction (element){
+    return element.gender === 'male';
+}
+
+if (maleCheck === true){
+    console.log("All the characters are male")
+}
+else{
+    console.log("Not all characters are male")
+};
+
+//10. Using a loop or Array.reduce() calculate the total mass of all the characters. 
+//Print the total mass to the console.
+
+let massTotal = charactersArray.reduce(function(total, currentCharacter){
+    return total + parseInt(currentCharacter.mass);
+}, 0);
+
+console.log("This is the total mass of all characters: " + massTotal);
+*/
+//11.
+
+function tagFavorite(tagArray, favChar){
+    tagArray.forEach(character => {
+        if (character.name === favChar){
+            character.favoriteCharacter =true;
+        }
+        else{
+            character.favoriteCharacter = false;
+        }
+    });
+}
+
+tagFavorite(charactersArray, "Luke Skywalker");
+console.log(charactersArray);
