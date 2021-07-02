@@ -31,25 +31,25 @@ button.addEventListener('click',function(){
   // console.log("my event listener is working");
   
   count++;
-  bodySpan.innerHTML = count;
+  counter.innerHTML = count;
   document.body.style.backgroundColor= randomColor();
 
 });
 
 //7.
-let bodySpan = document.getElementById('counter');
+let counter = document.getElementById('counter');
 //console.log(bodySpan);
 
 //8. add a new event listener that responds to right click
 
 
-button.addEventListener('contextmenu', function(){
+button.addEventListener('contextmenu', function(event){
     event.preventDefault();  //prevents menu from popping up
     
     count--;
-    bodySpan.innerHTML = count;
-    document.body.style.backgroundColor= randomColor();
-    //console.log("right clicking did something");
+    counter.innerHTML = count;
+   document.body.style.backgroundColor= randomColor();
+   // console.log("right click worked");
 })
 
 //9. Given the following function that returns a random color from an array, change 
@@ -65,8 +65,7 @@ function randomColor() {
 }
 
 //10
-let tbody  = document.getElementById('tbodyID');
-//console.log(tbody);
+
 
 
 
@@ -171,16 +170,22 @@ let quizQuestions = [
 
 //tbody.innerHTML =quizQuestions;
 
+let tbody  = document.getElementById('tbodyID');
+//console.log(tbody);
+
 for (let i = 0; i < quizQuestions.length; i++) {
-    let tr = "<tr>";
 
-    /* Verification to add the last decimal 0 */
-    if (quizQuestions[i].value.toString().substring(quizQuestions[i].value.toString().indexOf('.'), quizQuestions[i].value.toString().length) < 2) 
-        obj[i].value += "0";
+   let tr = "<td>" + quizQuestions[i].id + "</td>" + "<td>" + quizQuestions[i].question
+      + "</td>" + "<td>" + quizQuestions[i].category.title + 
+       "</td>" + "<td>" + quizQuestions[i].value +
+        "</td>" + "<td>" + quizQuestions[i].answer +  "</td>";
 
-    /* Must not forget the $ sign */
-    tr += "<td>" + quizQuestions[i].key + "</td>" + "<td>$" + quizQuestions[i].value.toString() + "</td></tr>";
-
-    /* We add the table row to the table body */
+ 
     tbody.innerHTML += tr;
 }
+
+
+
+$(document).ready( function () {
+    $('#quizQuestionsTable').DataTable();
+} );
